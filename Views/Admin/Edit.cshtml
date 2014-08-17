@@ -1,0 +1,31 @@
+﻿@model Orchard.Alias.Redirects.Models.RedirectEntity
+
+@{
+    Layout.Title = T("Edit Redirect");
+}
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Html.ValidationSummary()
+
+    <fieldset>
+        @Html.HiddenFor(x => x.Id)
+        @Html.LabelFor(x => x.Alias)
+        @Html.TextBoxFor(x => x.Alias, new { @class = "textMedium" })
+                
+        <span class="hint">**Example: 'winespecial' or 'wine/special'**</span>
+    </fieldset>
+
+    <fieldset>
+        @Html.LabelFor(x => x.Url)
+        @Html.TextBoxFor(x => x.Url, new { @class = "textMedium" })
+    </fieldset>
+
+
+    <fieldset>
+        <button type="submit" name="submit.Save" value="@T("Save")" class="primaryAction">@T("Save")</button>
+        <button type="submit" name="submit.Delete" value="@T("Delete")">@T("Delete")</button>
+
+        @Html.ActionLink("Back", "Index", null, new { @class = "button" })
+    </fieldset>
+}

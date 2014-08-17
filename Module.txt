@@ -1,0 +1,13 @@
+﻿Name: Orchard.Alias.Redirects
+AntiForgery: enabled
+Author: Chris Roberson
+Website: http://objectink.com
+Version: 1.0
+OrchardVersion: 1.8
+Description: Create aliases for easy redirects
+Category: Ignite
+Dependencies: Navigation
+Features:
+    Orchard.Alias.Redirects:
+	Name: Orchard.Alias.Redirects
+        Description: Create aliases for easy redirects

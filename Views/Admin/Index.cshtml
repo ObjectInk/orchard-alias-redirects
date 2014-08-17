@@ -1,0 +1,53 @@
+﻿@model Orchard.Alias.Redirects.Models.IndexViewModel
+
+@{
+    Style.Require("Styles.Admin.Orchard.Alias.Redirectss");
+}
+
+@{
+    Layout.Title = T("Manage Redirects").ToString();
+}
+
+<div class="clear"></div>
+
+<div class="manage">
+    @Html.ActionLink(T("Add Redirect").ToString(), "Create", null, new { @class = "button primaryAction" })
+</div>
+
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    <fieldset>
+        <table id="redirects" class="items">
+            <thead>
+                <tr>
+                    <th>
+                        @T("Alias")
+                    </th>
+                    <th>
+                        @T("Link URL")
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var redirect in Model.ExistingRedirects)
+                {
+                    <tr>
+                        <td>
+                            @Html.Label("Alias_"+ redirect.Id, redirect.Alias, new { @class = "text medium" })
+                        </td>
+                        <td>
+                           <a href="@redirect.Url" target="_blank" class="text medium">@redirect.Url</a>
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = redirect.Id })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </fieldset>
+}
+
